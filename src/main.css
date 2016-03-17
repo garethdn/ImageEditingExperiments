@@ -11,7 +11,7 @@ body {
 
 #new-canvas {
   margin-top: 20px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   max-width: 100%;
 
   image-rendering: optimizeSpeed;             /* Older versions of FF          */

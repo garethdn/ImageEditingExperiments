@@ -10,8 +10,8 @@
   <h1>Image Editor</h1>
   
   <div>
-    <p>Total time: <span id="total-time">...waiting</span></p>
-    <p>Loops: <span id="total-loops">...waiting</span></p>
+    <p>Total time: <span id="total-time"></span></p>
+    <p>Loops: <span id="total-loops"></span></p>
 
     <label for="shape-size">Shape size: </label>
     <input type="number" min=2 max=100 id="shape-size" value="10">
@@ -26,6 +26,16 @@
     <input type="file" id="image-file" accept="image/*">
 
     <button id="submit">Do it</button>
+
+    <form id="colors">
+      <label for="color">Color: </label>
+      <input type="radio" name="color" value="original" checked>Original
+      <input type="radio" name="color" value="grayscale">Grayscale
+      <input type="radio" name="color" value="bandw">Black + White
+
+      <label for="bandw-threshold"></label>
+      <input type="number" min=5 max=90 name="bandw-threshold" id="bandw-threshold" step=5 value="50">
+    </form>
   </div>
 
   <canvas id="original-canvas"></canvas>

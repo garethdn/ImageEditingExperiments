@@ -4,7 +4,8 @@
   let newCanvas = document.getElementById('new-canvas');
   let img = new Image();
   let halfWidth;
-
+  let colorType;
+  let bandwThreshold;
 
   newCanvas.getContext('2d').mozImageSmoothingEnabled = false;
   newCanvas.getContext('2d').imageSmoothingEnabled = false; //future
@@ -29,7 +30,12 @@
   document.getElementById('image-file').addEventListener('change', onFileSelect)
 
   let render = () => {
+    document.getElementById('total-time').innerHTML = '...working';
+    document.getElementById('total-loops').innerHTML = '...working';
+
+
     var shape = document.getElementById('shape-type').value;
+    colorType = document.getElementById('colors').elements['color'].value;
     halfWidth = document.getElementById('shape-size').value ?  
       +document.getElementById('shape-size').value : 
       10;
@@ -69,8 +75,8 @@
         let pixelData = originalCanvasContext.getImageData(x, y, 1, 1).data;
 
         shapeType === 'circle' ?
-          drawCircle(newCanvasContext, x, y, `rgb(${pixelData[0]}, ${pixelData[1]}, ${pixelData[2]})`) :
-          drawSquare(newCanvasContext, x, y, `rgb(${pixelData[0]}, ${pixelData[1]}, ${pixelData[2]})`)
+          drawCircle(newCanvasContext, x, y, getColor(pixelData)) :
+          drawSquare(newCanvasContext, x, y, getColor(pixelData))
 
         counter++;
       }
@@ -93,6 +99,27 @@
     context.arc(x, y, halfWidth, 0, 2 * Math.PI, false);
     context.fillStyle = color;
     context.fill();
+  }
+
+  let getColor = (pixelData) => {
+    if (colorType === 'original') {
+      return `rgb(${pixelData[0]}, ${pixelData[1]}, ${pixelData[2]})`;
+    }
+
+    if (colorType === 'grayscale') {
+      let value = Math.floor((pixelData[0] + pixelData[1] + pixelData[2])/3);
+
+      return `rgb(${value}, ${value}, ${value})`;
+    }
+
+    if (colorType === 'bandw') {
+      let value = Math.floor((pixelData[0] + pixelData[1] + pixelData[2]) / 3);
+      let threshold = document.getElementById('bandw-threshold').value || 50;
+
+      return value > 255 * (threshold / 100) ?
+        `rgb(255, 255, 255)`:
+        `rgb(0,0,0)`;
+    }
   }
  
 })()
