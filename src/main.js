@@ -74,9 +74,25 @@
 
         let pixelData = originalCanvasContext.getImageData(x, y, 1, 1).data;
 
-        shapeType === 'circle' ?
-          drawCircle(newCanvasContext, x, y, getColor(pixelData)) :
-          drawSquare(newCanvasContext, x, y, getColor(pixelData))
+        switch(shapeType) {
+
+          case 'circle':
+            drawCircle(newCanvasContext, x, y, getColor(pixelData));
+            break;
+
+          case 'square':
+            drawSquare(newCanvasContext, x, y, getColor(pixelData));
+            break;
+
+          case 'triangle':
+            polygon(newCanvasContext, x, y, 3, halfWidth, halfWidth, 0, getColor(pixelData));
+            break;
+
+          case 'hexagon':
+            polygon(newCanvasContext, x, y, 6, halfWidth, halfWidth, 0, getColor(pixelData));
+            break;
+
+        }
 
         counter++;
       }
@@ -121,5 +137,25 @@
         `rgb(0,0,0)`;
     }
   }
+
+  let polygon = (ctx, x, y, points, radius1, radius2, alpha0, color) => {
+    //points: number of points (or number of sides for polygons)
+    //radius1: "outer" radius of the star
+    //radius2: "inner" radius of the star (if equal to radius1, a polygon is drawn)
+    //angle0: initial angle (clockwise), by default, stars and polygons are 'pointing' up
+    var i, angle, radius;
+    if (radius2 !== radius1) {
+        points = 2 * points;
+    }
+    ctx.beginPath();
+    for (i = 0; i <= points; i++) {
+        angle = i * 2 * Math.PI / points - Math.PI / 2 + alpha0;
+        radius = i % 2 === 0 ? radius1 : radius2;
+        ctx.lineTo(x + radius * Math.cos(angle), y + radius * Math.sin(angle));
+    }
+
+    ctx.fillStyle = color;
+    ctx.fill();
+}
  
 })()

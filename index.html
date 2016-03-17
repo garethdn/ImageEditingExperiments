@@ -10,8 +10,8 @@
   <h1>Image Editor</h1>
   
   <div>
-    <p>Total time: <span id="total-time"></span></p>
-    <p>Loops: <span id="total-loops"></span></p>
+    <p>Total time: <span id="total-time">wating</span></p>
+    <p>Loops: <span id="total-loops">waiting</span></p>
 
     <label for="shape-size">Shape size: </label>
     <input type="number" min=2 max=100 id="shape-size" value="10">
@@ -19,7 +19,9 @@
     <label for="shape-type">Shape type: </label>
     <select name="shape-type" id="shape-type">
       <option value="circle">Circle</option>
+      <option value="triangle">Triangle</option>
       <option value="square">Square</option>
+      <option value="hexagon">Hexagon</option>
     </select>
 
     <label for="image-file">Image: </label>
