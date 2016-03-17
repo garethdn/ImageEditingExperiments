@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Editor</title>
+
+  <link rel="stylesheet" href="src/main.css">
+</head>
+<body>
+  <h1>Image Editor</h1>
+  
+  <div>
+    <p>Total time: <span id="total-time">...waiting</span></p>
+    <p>Loops: <span id="total-loops">...waiting</span></p>
+
+    <label for="shape-size">Shape size: </label>
+    <input type="number" min=2 max=100 id="shape-size" value="10">
+
+    <label for="shape-type">Shape type: </label>
+    <select name="shape-type" id="shape-type">
+      <option value="circle">Circle</option>
+      <option value="square">Square</option>
+    </select>
+
+    <label for="image-file">Image: </label>
+    <input type="file" id="image-file" accept="image/*">
+
+    <button id="submit">Do it</button>
+  </div>
+
+  <canvas id="original-canvas"></canvas>
+  <canvas id="new-canvas"></canvas>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
