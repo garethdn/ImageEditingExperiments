@@ -7,42 +7,16 @@
   <link rel="stylesheet" href="src/main.css">
 </head>
 <body>
-  <h1>Image Editor</h1>
-  
-  <div>
-    <p>Total time: <span id="total-time">wating</span></p>
-    <p>Loops: <span id="total-loops">waiting</span></p>
+  <div id="shell"></div>
 
-    <label for="shape-size">Shape size: </label>
-    <input type="number" min=2 max=100 id="shape-size" value="10">
+  <script src="node_modules/systemjs/dist/system.js"></script>
+  <script src="node_modules/diff-dom/diffDOM.js"></script>
 
-    <label for="shape-type">Shape type: </label>
-    <select name="shape-type" id="shape-type">
-      <option value="circle">Circle</option>
-      <option value="triangle">Triangle</option>
-      <option value="square">Square</option>
-      <option value="hexagon">Hexagon</option>
-    </select>
+  <script src="dist/app.js"></script>
 
-    <label for="image-file">Image: </label>
-    <input type="file" id="image-file" accept="image/*">
-
-    <button id="submit">Do it</button>
-
-    <form id="colors">
-      <label for="color">Color: </label>
-      <input type="radio" name="color" value="original" checked>Original
-      <input type="radio" name="color" value="grayscale">Grayscale
-      <input type="radio" name="color" value="bandw">Black + White
-
-      <label for="bandw-threshold"></label>
-      <input type="number" min=5 max=90 name="bandw-threshold" id="bandw-threshold" step=5 value="50">
-    </form>
-  </div>
-
-  <canvas id="original-canvas"></canvas>
-  <canvas id="new-canvas"></canvas>
-
-  <script src="src/main.js"></script>
+  <script>
+    System.import('boot')
+      .then(null, console.error.bind(console));
+  </script>
 </body>
 </html>

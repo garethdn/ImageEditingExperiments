@@ -1,0 +1,3 @@
+export const ASCII_GRAYSCALE_MAP_LIGHT_TO_DARK = [' ', '.', ':', '-', '=', '+', '*', '#', '%', '@'];
+export const ASCII_GRAYSCALE_MAP_DARK_TO_LIGHT = ASCII_GRAYSCALE_MAP_LIGHT_TO_DARK.reverse();
+export const ASCII_MAP_ALT = ['$', '@', 'B', '%', '8', '&', 'W', 'M', '#', '*', 'o', 'a', 'h', 'k', 'b', 'd', 'p', 'q', 'w', 'm', 'Z', 'O', '0', 'Q', 'L', 'C', 'J', 'U', 'Y', 'X', 'z', 'c', 'v', 'u', 'n', 'x', 'r', 'j', 'f', 't', '/', '\\', '|', '(', ')', '1', '{', '}', '[', ']', '?', '-', '_', '+', '~', '<', '>', 'i', '!', 'l', 'I', ';', ':', ',', '"', '^', '`', "'", '.', ' '];

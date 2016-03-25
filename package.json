@@ -1,0 +1,31 @@
+{
+  "name": "imagee-editing-experiments",
+  "version": "0.0.1",
+  "description": "Some experiments with canvas drawing. Requires Chrome 49 or higher.",
+  "main": "src/boot/js",
+  "dependencies": {},
+  "devDependencies": {
+    "diff-dom": "^2.0.1",
+    "systemjs": "^0.19.24",
+    "typescript": "^1.8.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garethdn/ImageEditingExperiments.git"
+  },
+  "keywords": [
+    "image",
+    "canvas",
+    "es6"
+  ],
+  "author": "= <=>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garethdn/ImageEditingExperiments/issues"
+  },
+  "homepage": "https://github.com/garethdn/ImageEditingExperiments#readme"
+}
